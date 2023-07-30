@@ -79,7 +79,8 @@ getdir $dir $1
 lsLength=${#landscapePictures[@]}
 if [ $lsLength -gt 1 ]; then
     sed -i '1s/^/\n/' $landscape_md_dir
-    sed -i '1i </figure>' $landscape_md_dir
+    imgLen=${lsLength- 1}
+    imgStr=""
     for var in ${landscapePictures[@]}; do
         fileInfoArray=(${var//\*/ })
         length=${#fileInfoArray[@]}
@@ -87,11 +88,12 @@ if [ $lsLength -gt 1 ]; then
         if [ $length -gt 1 ]; then
             name=${fileInfoArray[1]}
             path=${fileInfoArray[2]}
-            sed -i '1i <img src="https://github.com/eric-projects/Stable-Diffusion-Pictures/blob/main'"${path}"'" width="100px">' $landscape_md_dir
+            imgStr="$imgStr <img src=\"https://github.com/eric-projects/Stable-Diffusion-Pictures/blob/main$path\" width=\"100px\">"
+            # sed -i '1i <img src="https://github.com/eric-projects/Stable-Diffusion-Pictures/blob/main'"${path}"'" width="100px">' $landscape_md_dir
             # sed -i '1i !['"${name}"']('"${path}"')' $landscape_md_dir
         else
             # 时间
-            sed -i '1i <figure>' $landscape_md_dir
+            sed -i '1i '"${imgStr}"'' $landscape_md_dir
             sed -i '1i ## '"${var}"'' $landscape_md_dir
         fi
     done
