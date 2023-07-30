@@ -76,6 +76,7 @@ unset characterPictures
 unset otherPictures
 getdir $dir $1
 
+# 风景
 lsLength=${#landscapePictures[@]}
 if [ $lsLength -gt 1 ]; then
     sed -i '1s/^/\n/' $landscape_md_dir
@@ -95,6 +96,30 @@ if [ $lsLength -gt 1 ]; then
             # 时间
             sed -i '1i '"${imgStr}"'' $landscape_md_dir
             sed -i '1i ## '"${var}"'' $landscape_md_dir
+        fi
+    done
+fi
+
+# 人物
+pLength=${#characterPictures[@]}
+if [ $pLength -gt 1 ]; then
+    sed -i '1s/^/\n/' $character_md_dir
+    imgLen=${pLength- 1}
+    imgStr=""
+    for var in ${characterPictures[@]}; do
+        fileInfoArray=(${var//\*/ })
+        length=${#fileInfoArray[@]}
+        echo "数组的元素为: ${fileInfoArray[@]} $length"
+        if [ $length -gt 1 ]; then
+            name=${fileInfoArray[1]}
+            path=${fileInfoArray[2]}
+            imgStr="$imgStr <img src=\"https://github.com/eric-projects/Stable-Diffusion-Pictures/blob/main$path\" width=\"100px\">"
+            # sed -i '1i <img src="https://github.com/eric-projects/Stable-Diffusion-Pictures/blob/main'"${path}"'" width="100px">' $landscape_md_dir
+            # sed -i '1i !['"${name}"']('"${path}"')' $landscape_md_dir
+        else
+            # 时间
+            sed -i '1i '"${imgStr}"'' $character_md_dir
+            sed -i '1i ## '"${var}"'' $character_md_dir
         fi
     done
 fi
