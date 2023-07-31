@@ -53,16 +53,22 @@ function getdir() {
             currentTimeStamp=$((timeStamp * 1000 + 10#$(date "+%N") / 1000000)) #将current转换为时间戳，精确到毫秒
             fileName=${dir_or_file##*/}                                         # 图片信息
             # 标签解读
-            fileInfoArray=(${fileName//-/ })
+            filePreInfo=${fileName%.*}
+            # echo ">>>文件fileName $filePreInfo"
+            fileInfoArray=(${filePreInfo//-/ })
             tagStr=${fileInfoArray[1]}
             tags=(${tagStr//_/ })
             filePath="/$first_dir/$2"
             for var in ${tags[@]}; do
+                # echo ">>>文件内容  $currentTimeStamp*$fileName*$filePath/$fileName $var"
                 if [[ "${landscapeCodes[@]}" =~ "$var" ]]; then
+                    # echo ">>>文件内容 landscapePictures"
                     landscapePictures[$currentTimeStamp]="$currentTimeStamp*$fileName*$filePath/$fileName"
                 elif [[ "${characterCodes[@]}" =~ "$var" ]]; then
+                    # echo ">>>文件内容 characterPictures"
                     characterPictures[$currentTimeStamp]="$currentTimeStamp*$fileName*$filePath/$fileName"
                 elif [[ "${otherCodes[@]}" =~ "$var" ]]; then
+                    # echo ">>>文件内容 otherPictures"
                     otherPictures[$currentTimeStamp]="$currentTimeStamp*$fileName*$filePath/$fileName"
                     # echo "$var in ary"
                 fi
@@ -102,6 +108,7 @@ fi
 
 # 人物
 pLength=${#characterPictures[@]}
+# echo "数组的元素为: ${characterPictures[@]} $pLength"
 if [ $pLength -gt 1 ]; then
     sed -i '1s/^/\n/' $character_md_dir
     imgLen=${pLength- 1}
@@ -109,7 +116,7 @@ if [ $pLength -gt 1 ]; then
     for var in ${characterPictures[@]}; do
         fileInfoArray=(${var//\*/ })
         length=${#fileInfoArray[@]}
-        echo "数组的元素为: ${fileInfoArray[@]} $length"
+        # echo "数组的元素为: ${fileInfoArray[@]} $length"
         if [ $length -gt 1 ]; then
             name=${fileInfoArray[1]}
             path=${fileInfoArray[2]}
