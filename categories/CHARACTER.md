@@ -1,3 +1,6 @@
+## 20230802
+<img src="https://github.com/eric-projects/Stable-Diffusion-Pictures/blob/main/2023/20230802/000002698106278-人物.png" width="100px"> <img src="https://github.com/eric-projects/Stable-Diffusion-Pictures/blob/main/2023/20230802/000012698106279-人物.png" width="100px"> <img src="https://github.com/eric-projects/Stable-Diffusion-Pictures/blob/main/2023/20230802/000022698106280-人物.png" width="100px"> <img src="https://github.com/eric-projects/Stable-Diffusion-Pictures/blob/main/2023/20230802/000041561729128-人物.png" width="100px"> <img src="https://github.com/eric-projects/Stable-Diffusion-Pictures/blob/main/2023/20230802/000051561729129-人物.png" width="100px">
+
 ## 20230731
 <img src="https://github.com/eric-projects/Stable-Diffusion-Pictures/blob/main/2023/20230731/000091738331892-人物.png" width="100px"> <img src="https://github.com/eric-projects/Stable-Diffusion-Pictures/blob/main/2023/20230731/000101738331893-人物.png" width="100px"> <img src="https://github.com/eric-projects/Stable-Diffusion-Pictures/blob/main/2023/20230731/000111738331894-人物.png" width="100px">
 
