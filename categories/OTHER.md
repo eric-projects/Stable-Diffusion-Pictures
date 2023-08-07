@@ -1,1 +1,4 @@
+## 20230807
+<img src="https://github.com/eric-projects/Stable-Diffusion-Pictures/blob/main/2023/20230807/000173398936856-其他-玫瑰花.png" width="100px"> <img src="https://github.com/eric-projects/Stable-Diffusion-Pictures/blob/main/2023/20230807/000122333850270-其他-玫瑰花.png" width="100px"> <img src="https://github.com/eric-projects/Stable-Diffusion-Pictures/blob/main/2023/20230807/000132333850271-其他-玫瑰花.png" width="100px"> <img src="https://github.com/eric-projects/Stable-Diffusion-Pictures/blob/main/2023/20230807/000142026509104-其他-玫瑰花.png" width="100px"> <img src="https://github.com/eric-projects/Stable-Diffusion-Pictures/blob/main/2023/20230807/000152026509105-其他-玫瑰花.png" width="100px"> <img src="https://github.com/eric-projects/Stable-Diffusion-Pictures/blob/main/2023/20230807/000163398936855-其他-玫瑰花.png" width="100px">
+
 #

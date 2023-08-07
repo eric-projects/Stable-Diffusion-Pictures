@@ -130,3 +130,28 @@ if [ $pLength -gt 1 ]; then
         fi
     done
 fi
+
+# 其他
+oLength=${#otherPictures[@]}
+# echo "数组的元素为: ${otherPictures[@]} $oLength"
+if [ $oLength -gt 1 ]; then
+    sed -i '1s/^/\n/' $other_md_dir
+    imgLen=${oLength- 1}
+    imgStr=""
+    for var in ${otherPictures[@]}; do
+        fileInfoArray=(${var//\*/ })
+        length=${#fileInfoArray[@]}
+        # echo "数组的元素为: ${fileInfoArray[@]} $length"
+        if [ $length -gt 1 ]; then
+            name=${fileInfoArray[1]}
+            path=${fileInfoArray[2]}
+            imgStr="$imgStr <img src=\"https://github.com/eric-projects/Stable-Diffusion-Pictures/blob/main$path\" width=\"100px\">"
+            # sed -i '1i <img src="https://github.com/eric-projects/Stable-Diffusion-Pictures/blob/main'"${path}"'" width="100px">' $landscape_md_dir
+            # sed -i '1i !['"${name}"']('"${path}"')' $landscape_md_dir
+        else
+            # 时间
+            sed -i '1i '"${imgStr}"'' $other_md_dir
+            sed -i '1i ## '"${var}"'' $other_md_dir
+        fi
+    done
+fi
